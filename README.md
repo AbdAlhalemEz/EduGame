@@ -55,6 +55,10 @@ This project is a web-based platform designed to manage educational games. It pr
   - Students can only play the game when the instructor has opened it.
   - The game is connected to the same database as this project.
 
+  **Connectors Folder:**
+  - The PHP files in the connectors folder are used to connect the Cannon game to the database.
+  - They facilitate signing in, retrieving leaderboard scores, and tracking student playtime and scores.
+
 ### Penalty Kick Game (PenaltyKickGame):
 
 - **Web Haxe Game:**
