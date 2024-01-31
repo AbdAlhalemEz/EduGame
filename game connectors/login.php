@@ -1,23 +1,9 @@
 <?php
+include('connection.php');
+
 // Get the username and password parameters from the HTTP POST request
 $username = $_POST["username"];
 $password = $_POST["password"];
-
-// Connect to your database
-$servername = "localhost";
-$dbname = "id20445083_advgamin";
-$dbusername =  "id20445083_root";
-$dbpassword = "Mi|f8NqQhl1J=&+5";
-
-
-
-
-$conn = new mysqli($servername, $dbusername, $dbpassword, $dbname);
-
-// Check if the connection was successful
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
 
 // Escape special characters in the username and password to prevent SQL injection
 $username = mysqli_real_escape_string($conn, $username);
@@ -36,7 +22,7 @@ else if ($result->num_rows > 0) {
     // The username and password were correct
     $row = $result->fetch_assoc();
     $id = $row["id"];
-    echo "Login successful!$id";
+    echo "Login successful! $id";
 } else {
     // The username and password were incorrect
     echo "Invalid username or password.";

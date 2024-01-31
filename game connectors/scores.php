@@ -1,17 +1,5 @@
 <?php
-
-
-$servername = "localhost";
-$username = "id20445083_root";
-$password = "Mi|f8NqQhl1J=&+5";
-$dbname = "id20445083_advgamin";
-
-
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+include('connection.php');
 
 // Calculate the sum of the 3 scores for each player and retrieve the top 3 scores with the player ID
 $sql = "SELECT player_id, SUM(score1 + score2 + score3) AS total_score FROM game_playtime GROUP BY player_id ORDER BY total_score DESC LIMIT 4";
@@ -53,5 +41,4 @@ echo $json_data;
 
 // Close the database connection
 $conn->close();
-
 ?>
