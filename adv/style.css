@@ -1,0 +1,539 @@
+.tt1{
+color: white;
+    
+}
+
+#im1{
+    margin-top: 20px;
+    width: 200px;
+}
+#ul1 {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: black;
+    border-top-left-radius: 20px; 
+    border-top-right-radius: 20px; 
+    font-family: Bernard MT Condensed;
+    
+}
+
+.li1:hover {background-color: #4C4C4C;
+    color: black;
+    border-radius: 20px;
+   
+    
+}
+.dd1{
+    
+   width: 25%;
+    float:left;
+}
+
+
+#inb{
+    background-color: darkorange;
+    border-top-right-radius: 60%;
+    border-bottom-right-radius: 60%;
+    font-family: cursive;
+    
+}
+#a1{
+    
+    color: crimson;
+    font-size: 20px;
+    
+}
+
+.li1  {
+    display: block;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    color: #aaa;
+     float: left;
+}
+.li2{
+    list-style-type: none;
+    padding: 20px;
+   
+}
+#ul2{
+    color: #DDD;
+    border-right: 2px solid #DDD;
+    width: 300px;
+
+
+    
+}
+#slide1 , #slide2 ,#slide3 , #slide4 {
+    background-color: rgba(8, 4, 22, 0.21);
+    width: 97.8%;
+    height: 250px;
+    display: none;
+    
+    border-bottom-left-radius: 20px; 
+    border-bottom-right-radius: 20px; 
+    position: absolute;
+    
+    
+}
+#img1{
+    width: 200px;
+    height: 200px;
+    float: right;
+    border-radius: 20px;
+    bottom: 200px;
+    position: relative;
+   right: 175px;
+    margin-left: 50px;
+}
+
+#img10{
+    width: 400px;
+    height: 200px;
+    float: right;
+    border-radius: 20px;
+    bottom: 130px;
+    position: relative;
+   right: 175px;
+    margin-left: 50px;
+}
+
+.col-md-4{
+height: 420px;
+    
+    float: left;
+   border-radius: 10px;
+    
+}
+#sac1{
+    width: 100%;
+   
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    float: left;
+}
+
+
+
+
+
+
+
+
+
+.container2 {
+  position: relative;
+  width:100%;
+    height: 400px;
+}
+
+.image {
+  display: block;
+  width: 100%;
+  height: auto;
+      height: 400px;
+    margin-top: 10px;
+  
+}
+.container2:hover .image{
+     filter: blur(3px)
+}
+
+.overlay  {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(8, 4, 22, 0.01);
+  overflow: hidden;
+  width: 100%;
+  height: 0;
+  transition: .5s ease;
+}
+
+.container2:hover .overlay {
+  height: 100%;
+   
+}
+
+.text {
+  white-space: nowrap; 
+  color: black;
+  font-size: 25px;
+  position: absolute;
+  overflow: hidden;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+}
+b{
+    text-decoration: line-through;
+}
+
+
+.clip-wrap {
+ margin-left: 62%;
+    box-shadow: 15px 15px 10px #888888;
+}
+
+
+.element {
+  -webkit-clip-path: polygon(0 100%, 0 0, 100% 0, 80% 100%);
+  clip-path: polygon(0 100%, 0 0, 100% 0, 80% 100%);
+  -webkit-clip-path: url("#clip-shape"); /* required for Webkit/Blink browsers if you're using only inline SVG clipping paths, but not CSS clip-path */
+  clip-path: url("#clip-shape");
+ transform: rotate(180deg);
+    margin-right: 50%;
+    display: inline-block;
+}
+#fstdiv{
+    
+    right: -1000px;
+    transition: 2s;
+}
+#scnddiv{
+    
+    right: -1000px;
+    transition: 2s;
+}
+#thrddiv{
+    
+    right: -1000px;
+    transition: 2s;
+}
+
+
+.empty{
+    width: 100%;
+    height: 1300px;
+    position: absolute;
+   background-color: rgba(8, 4, 22, 0.01);
+    
+}
+#fsth{
+    font-size: 40px;
+    color: white;
+    position: absolute;
+    margin-left: 20px;
+    margin-top: 80px;
+    
+}
+.fstp1{
+    color: white;
+    position: absolute;
+    margin-left: 20px;
+    margin-top: 80px; 
+    left:-1000px;
+    transition:1s;
+padding-top: 80px;
+    font-size: ;
+    
+
+}
+.fstp2{
+    color: white;
+    position: absolute;
+    margin-left: 20px;
+    margin-top: 100px; 
+    left:-1000px;
+    transition:2s;
+padding-top: 80px;
+    font-size: ;
+    
+
+}
+.fstp3{
+    color: white;
+    position: absolute;
+    margin-left: 20px;
+    margin-top: 120px; 
+    left:-1000px;
+    transition:3s;
+padding-top: 80px;
+    font-size: ;
+    
+
+}
+.fstp4 {
+   
+    color: white;
+    position: absolute;
+    margin-left: 20px;
+    margin-top: 140px;
+    left:-1000px;
+    transition:3.2s;
+padding-top: 80px;
+    font-size: ;
+}
+.fstp5{
+       color: white;
+    position: absolute;
+    margin-left: 20px;
+    margin-top:-340px ;
+    left:-3000px;
+    transition:1s;
+padding-top: 80px;
+    font-size: ;
+} 
+
+.fstp6{
+       color: white;
+    position: absolute;
+    margin-left: 20px;
+    margin-top:-320px ;
+    left:-3000px;
+    transition:2s;
+padding-top: 80px;
+    font-size: ;
+} 
+
+.fstp7{
+       color: white;
+    position: absolute;
+    margin-left: 20px;
+    margin-top:-300px ;
+    left:-3000px;
+    transition:3s;
+padding-top: 80px;
+    font-size: ;
+}
+
+.fstp8{
+       color: white;
+    position: absolute;
+    margin-left: 20px;
+    margin-top:-280px ;
+    left:-3000px;
+    transition:3.5s;
+padding-top: 80px;
+    font-size: ;
+}
+#fsth2{
+     font-size: 40px;
+    color: white;
+    position: absolute;
+    margin-left: 20px;
+    margin-top: -340px;
+    
+}
+
+
+.fstp9{
+       color: white;
+    position: absolute;
+    margin-left: 20px;
+    margin-top:-340px ;
+    left:-3000px;
+    transition:1s;
+padding-top: 80px;
+    font-size: ;
+} 
+
+.fstp10{
+       color: white;
+    position: absolute;
+    margin-left: 20px;
+    margin-top:-320px ;
+    left:-3000px;
+    transition:2s;
+padding-top: 80px;
+    font-size: ;
+} 
+
+.fstp11{
+       color: white;
+    position: absolute;
+    margin-left: 20px;
+    margin-top:-300px ;
+    left:-3000px;
+    transition:3s;
+padding-top: 80px;
+    font-size: ;
+}
+
+.fstp12{
+       color: white;
+    position: absolute;
+    margin-left: 20px;
+    margin-top:-280px ;
+    left:-3000px;
+    transition:3.5s;
+padding-top: 80px;
+    font-size: ;
+}
+#fsth3{
+     font-size: 40px;
+    color: white;
+    position: absolute;
+    margin-left: 20px;
+    margin-top: -340px;
+    
+}
+#newsp{
+    color: white;
+    font-size: 20px;
+    float: right;
+    position: relative;
+   right: 175px;
+    margin-left: 50px;
+    bottom: 100px;
+}
+
+
+
+#last{
+    width: 100%;
+    height: 400px;
+    background-color:#DDD;
+    list-style-type: none;
+    margin-top: -30px;
+    
+}
+.laul{
+     list-style-type: none;
+    display: inline-block;
+    float: left;
+    margin-right: 20px;
+}
+.lali{
+    border-bottom: 1px solid #1b1b1b;
+    color: #1b1b1b;
+    padding: 10px;
+    
+}
+.cat{
+    color: white;
+    font-size: 25px;
+    display:block;
+}
+#store{
+    width: 400px;
+    height: 400px;
+    float: right;
+    display: inline-block;
+    margin-top: -400px;
+}
+.our{
+    display: inline-block;
+    color:#1b1b1b ;
+    margin-top: 0px;
+    font-size: 20px;
+
+}
+#icons{
+    width: 50px;
+    height: 400px;
+    background-color: white;
+    margin-top: 100px;
+    margin-left: 200px;
+     text-align: center;
+    padding-top: 50%;
+    z-index: 2;
+ 
+    
+}
+.fa{
+  color: white;
+    font-size: 40px;
+}
+#btn{
+    width: 100%;
+    height: 100px;
+    margin-left: 20%;
+    margin-top: 40px;
+    color: #4C4C4C;
+    font-size: 25PX;
+}
+.btn-success{
+    background-color: #4C4C4C;
+}
+.container{
+    background-color: #D6D6D6;
+}
+.form{
+    width: 300px;
+    height: 600px;
+    background-color: #4A4A4A;
+    border: 10px solid #1b1b1b;
+    padding: 10px;
+     z-index: 2;
+    margin-left: 20%;
+ 
+    
+}
+.get{
+    color: white;
+    margin-left: 10px;
+    font-family: algerian;
+}
+.fa1{
+    color: #4A4A4A;
+    font-size: 20px;
+    margin-top: 25px;
+
+}
+.get2{
+    color: #aaa;
+    font-size:15px;
+    margin-left: 10px;
+}
+.in{
+    border:none;
+    border-bottom: 1px solid #aaa;
+    outline: none;
+    padding: 20px;
+    background-color:  #4A4A4A;
+    width:100%;
+}
+.imgdiv{
+    width:100%;
+    height: 400px;
+  background-image: url(imgs/last.jpg);
+    margin-left: 65px;
+    margin-top: 100px;
+    z-index: 1;
+/*    background-color:rgba(0, 0, 0, 0.7);*/
+}
+#submit{
+    border: none;
+    width: 100px;
+    height: 30px;
+     background-color:rgba(0, 0, 0, 0.7);
+    color: white;
+   margin: auto;
+    display: block;
+    margin-top: %;
+
+    
+}
+
+
+.li22{
+    float: right;
+    width: 50px;
+    height: 50px
+}
+.li22:hover{
+    background-color: burlywood;
+    border-radius: 20px;
+}
+
+.w3-button{
+    background-color: rgba(0, 0, 0, 0.7) ;
+    align-items: center;
+    margin-top: 20px;
+    margin-left: 400px;
+    width: 60px;
+    color: dodgerblue
+}
+
+body{background-image: url(image/bggg.jpg);
+     background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
