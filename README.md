@@ -46,7 +46,7 @@ This project is a web-based platform designed to manage educational games. It pr
 ### Cannon Game (GravityCannonunity2d):
 
 - **Instructor Tracking:**
-  - Track students' activity within the Cannon Game.
+  - Track students' activity within the [Cannon Game](https://github.com/AbdAlhalemEz/GravityCannonunity2d).
   - Monitor time spent playing, scores, and last time played.
   - Control access by opening or closing the game.
 
@@ -55,14 +55,10 @@ This project is a web-based platform designed to manage educational games. It pr
   - Students can only play the game when the instructor has opened it.
   - The game is connected to the same database as this project.
 
-  ![Cannon Game](https://github.com/AbdAlhalemEz/GravityCannonunity2d/raw/main/screenshots/cannon_game.png)
-
 ### Penalty Kick Game (PenaltyKickGame):
 
 - **Web Haxe Game:**
-  - Included a web Haxe game within the website.
-
-  ![Penalty Kick Game](https://github.com/AbdAlhalemEz/PenaltyKickGame/raw/main/screenshots/penalty_kick_game.png)
+  - Included a web Haxe game within the [Penalty Kick Game](https://github.com/AbdAlhalemEz/PenaltyKickGame).
 
 ## Getting Started
 
