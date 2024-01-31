@@ -23,6 +23,7 @@ This project is a web-based platform designed to manage educational games. It pr
 
 - **Feedback Viewing:**
   - View feedback provided by students about the games and the website.
+![Student home](https://github.com/AbdAlhalemEz/EduGame/blob/main/screenshots/instructor.gif)
 
 ### For Students:
 
@@ -38,6 +39,26 @@ This project is a web-based platform designed to manage educational games. It pr
 
 - **Feedback Submission:**
   - Provide feedback about the games and the website.
+![Student home](https://github.com/AbdAlhalemEz/EduGame/blob/main/screenshots/student.gif)
+
+## Connected Games
+
+### Cannon Game (GravityCannonunity2d):
+
+- **Instructor Tracking:**
+  - Track students' activity within the [Cannon Game](https://github.com/AbdAlhalemEz/GravityCannonunity2d).
+  - Monitor time spent playing, scores, and last time played.
+  - Control access by opening or closing the game.
+
+- **Student Access:**
+  - Students need a username and password provided by the instructor to log in.
+  - Students can only play the game when the instructor has opened it.
+  - The game is connected to the same database as this project.
+
+### Penalty Kick Game (PenaltyKickGame):
+
+- **Web Haxe Game:**
+  - Included a web Haxe game within the [Penalty Kick Game](https://github.com/AbdAlhalemEz/PenaltyKickGame).
 
 ## Getting Started
 
@@ -64,6 +85,3 @@ This project is a web-based platform designed to manage educational games. It pr
 ## Notes
 
 - Passwords are encrypted using hash encryption for security.
-
-
-
