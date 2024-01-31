@@ -26,27 +26,23 @@
                         <h3 class="li22" Style="color:red ; width:200px ; text-align: center ;font-size:22px; 
                  padding: 8px;"> Welcome
                             
-                            <?php 
-                           // Start a new session
-                    session_start();
-                       $id1 = $_SESSION['id'];
-                        
+                          <?php
+// Start a new session
+session_start();
+$id1 = $_SESSION['id'];
 
-                            
-                        $cser=mysqli_connect("localhost","id20445083_root","Mi|f8NqQhl1J=&+5","id20445083_advgamin"); //database connectivity
-                       $resname=mysqli_query($cser,"select fname from student where id=$id1");
+// Include the database connection file
+include 'connection.php';
 
-                         $row = mysqli_fetch_array($resname);
-    
-                          $fname=strval($row['fname']);
-                        
-                        
-                        echo "$fname";
-                        
-                        
-                        
-                        
-                        ?>
+$cser = $conn; // Use the connection from connection.php
+
+$resname = mysqli_query($cser, "SELECT fname FROM student WHERE id=$id1");
+$row = mysqli_fetch_array($resname);
+
+$fname = strval($row['fname']);
+echo "$fname";
+?>
+
                         </h3>
                       
 
@@ -275,24 +271,25 @@
     </div>
     <div id="btn" style="color: antiquewhite">
         YOU CAN ADD YOUR FEEDBACK HERE :
-        <?php
-        
-  
-                       $id1 = $_SESSION['id'];
-        
-         $cser=mysqli_connect("localhost","id20445083_root","Mi|f8NqQhl1J=&+5","id20445083_advgamin"); //database connectivity
-                       $resname=mysqli_query($cser,"select fname,lname from student where id=$id1");
+       <?php
+// Start a new session
+session_start();
+$id1 = $_SESSION['id'];
 
-                         $row = mysqli_fetch_array($resname);
-    
-                          $fname=strval($row['fname']);
-                          $lname=strval($row['lname']);
-        
+// Include the database connection file
+include 'connection.php';
 
-        
-      echo  "<a href='feedBack.php' target='_blank' style='color: antiquewhite'> <button class='btn-success'>FEEDBACK</button></a>"
-            
-            ?>
+$cser = $conn; // Use the connection from connection.php
+
+$resname = mysqli_query($cser, "SELECT fname, lname FROM student WHERE id=$id1");
+$row = mysqli_fetch_array($resname);
+
+$fname = strval($row['fname']);
+$lname = strval($row['lname']);
+
+echo "<a href='feedBack.php' target='_blank' style='color: antiquewhite'><button class='btn-success'>FEEDBACK</button></a>";
+?>
+
     </div>
     <div id="last">
         <ul class="laul">

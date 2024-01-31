@@ -24,18 +24,24 @@
                  padding: 8px;"> Welcome
                             
                            
-                          <?php 
-                           // Start a new session
-                    session_start();
-                       $id1 = $_SESSION['id'];
-                       $cser=mysqli_connect("localhost","root","","advgaming"); //database connectivity
-                       $resname=mysqli_query($cser,"select fname from student where id=$id1");
+                     <?php
+// Start a new session
+session_start();
 
-                       $row = mysqli_fetch_array($resname);
-    
-                       $fname=strval($row['fname']); 
-                       echo "$fname";
-                       ?>
+// Include the database connection file
+include 'connection.php';
+
+$id1 = $_SESSION['id'];
+$cser = $conn; // Using the connection from connection.php
+
+$resname = mysqli_query($cser, "SELECT fname FROM student WHERE id=$id1");
+
+$row = mysqli_fetch_array($resname);
+
+$fname = strval($row['fname']);
+echo "$fname";
+?>
+
                             
                             
                         </h3>
@@ -87,28 +93,27 @@
 
 </html>
 
-<?php 
-$cser=mysqli_connect("localhost","root","","advgaming"); //database connectivity
+<?php
+include 'connection.php'; // Include the database connection file
 
-if(isset($_POST['submit']))
-{
-$id = $_SESSION['id'];  
-    
-   
-$filename = "C:/Users/black/playedTime/Assets/game_data.txt";
+$cser = $conn; // Using the connection from connection.php
 
-$file = fopen($filename, "w") or die("Unable to open file!"); // open file for writing
+if (isset($_POST['submit'])) {
+    session_start();
+    $id = $_SESSION['id'];
 
-fwrite($file, $id); // write ID to file
-fclose($file); // close file
+    $filename = "C:/Users/black/playedTime/Assets/game_data.txt";
 
-echo "ID $id has been added to the file.";
-    
+    $file = fopen($filename, "w") or die("Unable to open file!"); // open file for writing
+
+    fwrite($file, $id); // write ID to file
+    fclose($file); // close file
+
+    echo "ID $id has been added to the file.";
+
     $link = 'C:\Users\black\playedTime\playedTime.exe&id=1'; // Replace with the path to your game executable file
 
-// Execute the game executable file without creating a new window
-exec("start /b \"\" \"$link\"");
+    // Execute the game executable file without creating a new window
+    exec("start /b \"\" \"$link\"");
 }
-    ?>
-
-
+?>

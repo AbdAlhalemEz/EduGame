@@ -63,99 +63,59 @@
 
 
 
-<?php 
+<?php
 
-$cser=mysqli_connect("localhost","id20445083_root","Mi|f8NqQhl1J=&+5","id20445083_advgamin"); //database connectivity
+// Include the database connection file
+include 'connection.php';
 
-if(isset($_POST['submit']))
-{
-    // Start the session
+// Start the session
 session_start();
-    
 
-    
-    
-    
+if (isset($_POST['submit'])) {
+    $email = $_POST['USERNAME'];
+    $password = $_POST['PASSWORD'];
 
-$email = $_POST['USERNAME'];
-$password = $_POST['PASSWORD'];
-    
-    $resA = mysqli_query($cser,"select* from manager where email='$email'and password='$password'");
-    
-$resultA=mysqli_fetch_array($resA);
-    
-    
-$resFD = mysqli_query($cser,"select* from instructor where email='$email'and password='$password'");
-    
-$resultFD=mysqli_fetch_array($resFD);
-    
-    
+    $resA = mysqli_query($conn, "SELECT * FROM manager WHERE email='$email' AND password='$password'");
+    $resultA = mysqli_fetch_array($resA);
 
-$res = mysqli_query($cser,"select* from student where email='$email'and password='$password'");
-    
-$result=mysqli_fetch_array($res);
-    
-    
- 
-    
+    $resFD = mysqli_query($conn, "SELECT * FROM instructor WHERE email='$email' AND password='$password'");
+    $resultFD = mysqli_fetch_array($resFD);
 
-if($resultA)  {
-       $resid=mysqli_query($cser,"select id from manager where email='$email'and password='$password'");
- 
-    $row = mysqli_fetch_array($resid);
-    
-     $id1=intval($row['id']);
-    
-    
+    $res = mysqli_query($conn, "SELECT * FROM student WHERE email='$email' AND password='$password'");
+    $result = mysqli_fetch_array($res);
 
-// Set the value of a session variable
-$_SESSION['id'] = $id1;
+    if ($resultA) {
+        $resid = mysqli_query($conn, "SELECT id FROM manager WHERE email='$email' AND password='$password'");
+        $row = mysqli_fetch_array($resid);
+        $id1 = intval($row['id']);
 
+        // Set the value of a session variable
+        $_SESSION['id'] = $id1;
 
-// Redirect to another page
-header('Location: https://advgamin.000webhostapp.com/adv/table.php');
-}
-    
-else if($resultFD){
-       $resid=mysqli_query($cser,"select id from instructor where email='$email'and password='$password'");
- 
-    $row = mysqli_fetch_array($resid);
-    
-     $id1=intval($row['id']);
-// Set the value of a session variable
-$_SESSION['id'] = $id1;
+        // Redirect to another page
+        header('Location: https://advgamin.000webhostapp.com/adv/table.php');
+    } else if ($resultFD) {
+        $resid = mysqli_query($conn, "SELECT id FROM instructor WHERE email='$email' AND password='$password'");
+        $row = mysqli_fetch_array($resid);
+        $id1 = intval($row['id']);
 
+        // Set the value of a session variable
+        $_SESSION['id'] = $id1;
 
-// Redirect to another page
-header('Location: https://advgamin.000webhostapp.com/adv/table.php');
-        
+        // Redirect to another page
+        header('Location: https://advgamin.000webhostapp.com/adv/table.php');
+    } else if ($result) {
+        $resid = mysqli_query($conn, "SELECT id FROM student WHERE email='$email' AND password='$password'");
+        $row = mysqli_fetch_array($resid);
+        $id1 = intval($row['id']);
+
+        // Set the value of a session variable
+        $_SESSION['id'] = $id1;
+
+        // Redirect to another page
+        header('Location: student.php');
+    } else {
+        echo '<h1 style="color:#AFA;text-align:center; font-family:algerian">wrong user name or password please try again</h1>';
     }
-    
-    
-else if($result){
-    
-      $resid=mysqli_query($cser,"select id from student where email='$email'and password='$password'");
- 
-    $row = mysqli_fetch_array($resid);
-    
-     $id1=intval($row['id']);
- // Set the value of a session variable
-$_SESSION['id'] = $id1;
- 
-                        
-                          
-   
-// Redirect to another page
-header('Location: student.php');
- 
-}
-    
-    
-    
-    
-else
-{
-	echo '<h1 style="color:#AFA;text-align:center; font-family:algerian">wrong user name or password please try again</h1>';
-}
 }
 ?>

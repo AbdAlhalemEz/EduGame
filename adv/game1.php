@@ -24,18 +24,24 @@
                  padding: 8px;"> Welcome
                             
                            
-                          <?php 
-                           // Start a new session
-                    session_start();
-                       $id1 = $_SESSION['id'];
-                       $cser=mysqli_connect("localhost","id20445083_root","Mi|f8NqQhl1J=&+5","id20445083_advgamin");  //database connectivity
-                       $resname=mysqli_query($cser,"select fname from student where id=$id1");
+                   <?php
+// Start a new session
+session_start();
 
-                       $row = mysqli_fetch_array($resname);
-    
-                       $fname=strval($row['fname']); 
-                       echo "$fname";
-                       ?>
+// Include the database connection file
+include 'connection.php';
+
+$id1 = $_SESSION['id'];
+$cser = $conn; // Using the connection from connection.php
+
+$resname = mysqli_query($cser, "SELECT fname FROM student WHERE id=$id1");
+
+$row = mysqli_fetch_array($resname);
+
+$fname = strval($row['fname']);
+echo "$fname";
+?>
+
                             
                             
                         </h3>

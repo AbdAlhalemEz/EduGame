@@ -125,16 +125,12 @@ th {
       </div>
   
 <div id="d2">
-      <?php
-
+     <?php
+// Include the database connection file
+include 'connection.php';
 
 // Create connection
-$conn = new mysqli("localhost","id20445083_root","Mi|f8NqQhl1J=&+5","id20445083_advgamin"); 
-
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+$conn = $conn;
 
 $sql = "SELECT * FROM quiz";
 $result = $conn->query($sql);
@@ -151,8 +147,8 @@ if ($result->num_rows > 0) {
 }
 
 $conn->close();
-
 ?>
+
 
       
       
@@ -183,42 +179,36 @@ $conn->close();
 <?php
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-   // Create connection
-  $conn = new mysqli("localhost","id20445083_root","Mi|f8NqQhl1J=&+5","id20445083_advgamin"); 
-  // Check connection
-  if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-  }
-    
-  $question = $_POST['question'];
-  $answer1 = $_POST['answer1'];
-  $answer2 = $_POST['answer2'];
-  $answer3 = $_POST['answer3'];
-  $answerkey = $_POST['answerkey'];
- 
- if (isset($_POST['submit'])) {   
-  
-$sql = "INSERT INTO quiz (question, answer1, answer2, answer3, answerkey)
-        VALUES ('$question', '$answer1', '$answer2', '$answer3', '$answerkey')";
+    // Include the database connection file
+    include 'connection.php';
 
-  
-  if ($conn->query($sql) === TRUE) {
-    echo "New record created successfully";
-  } else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
-  }
-}
-    
-    
-        if (isset($_POST['delete'])) {
-    $sql = "DELETE FROM quiz";
-    if ($conn->query($sql) === TRUE) {
-        echo "All records in the quiz table have been deleted successfully";
-    } else {
-        echo "Error deleting data: " . $conn->error;
+    $question = $_POST['question'];
+    $answer1 = $_POST['answer1'];
+    $answer2 = $_POST['answer2'];
+    $answer3 = $_POST['answer3'];
+    $answerkey = $_POST['answerkey'];
+
+    if (isset($_POST['submit'])) {
+
+        $sql = "INSERT INTO quiz (question, answer1, answer2, answer3, answerkey)
+                VALUES ('$question', '$answer1', '$answer2', '$answer3', '$answerkey')";
+
+        if ($conn->query($sql) === TRUE) {
+            echo "New record created successfully";
+        } else {
+            echo "Error: " . $sql . "<br>" . $conn->error;
+        }
     }
-}
-  
-  $conn->close();
+
+    if (isset($_POST['delete'])) {
+        $sql = "DELETE FROM quiz";
+        if ($conn->query($sql) === TRUE) {
+            echo "All records in the quiz table have been deleted successfully";
+        } else {
+            echo "Error deleting data: " . $conn->error;
+        }
+    }
+
+    $conn->close();
 }
 ?>

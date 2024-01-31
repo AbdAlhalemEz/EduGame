@@ -129,52 +129,46 @@ function showHint(str) {
 
 
 <?php
-$fname = filter_input(INPUT_POST, 'fname');  $lname = filter_input(INPUT_POST, 'lname');
-$address = filter_input(INPUT_POST, 'address'); $grade = filter_input(INPUT_POST, 'grade');
-$password = filter_input(INPUT_POST, 'password'); $email = filter_input(INPUT_POST, 'email');
+
+// Include the database connection file
+include 'connection.php';
+
+$fname = filter_input(INPUT_POST, 'fname');
+$lname = filter_input(INPUT_POST, 'lname');
+$address = filter_input(INPUT_POST, 'address');
+$grade = filter_input(INPUT_POST, 'grade');
+$password = filter_input(INPUT_POST, 'password');
+$email = filter_input(INPUT_POST, 'email');
 $id = filter_input(INPUT_POST, 'id');
 
- if (!empty($fname)){
-if (!empty($password)){
-    $servername = "localhost";
-$username = "id20445083_root";
-$password = "Mi|f8NqQhl1J=&+5";
-$dbname = "id20445083_advgamin";
-    
- 
-// Create connection
-$conn = new mysqli ($servername, $username, $password, $dbname);
+if (!empty($fname)) {
+    if (!empty($password)) {
 
-    $res = mysqli_query($conn,"select* from student where email='$email'");
-    $result=mysqli_fetch_array($res);   
-    
-if (mysqli_connect_error()){
-  die('Connect Error ('. mysqli_connect_errno() .') '
-    . mysqli_connect_error());
-}
-else if(!preg_match("/^[a-zA-Z0-9]+@[a-zA-Z0-9_-]+\.[a-zA-Z0-9_-]/", $email)){
-        echo '<h1 style="color:#AFA;text-align:center; font-family:algerian">email not valid</h1>';
+        $res = mysqli_query($conn, "SELECT * FROM student WHERE email='$email'");
+        $result = mysqli_fetch_array($res);
+
+        if (!preg_match("/^[a-zA-Z0-9]+@[a-zA-Z0-9_-]+\.[a-zA-Z0-9_-]/", $email)) {
+            echo '<h1 style="color:#AFA;text-align:center; font-family:algerian">Email not valid</h1>';
+        } else if ($result) {
+            echo '<h1 style="color:#AFA;text-align:center; font-family:algerian">This Email is already in use.</h1>';
+        } else {
+            $sql = "INSERT INTO student (fname, lname, email, password, grade, address, manid)
+                    VALUES ('$fname', '$lname', '$email', '$password', '$grade', '$address', '1')";
+
+            if ($conn->query($sql)) {
+                echo("<script>location.href = 'https://advgamin.000webhostapp.com/adv/signin.php';</script>");
+            } else {
+                echo "Error: " . $sql . " " . $conn->error;
+            }
+        }
+    } else {
+        echo '<h1 style="color:#AFA;text-align:center; font-family:algerian">Password should not be empty</h1>';
+        die();
     }
-    else if($result){   
-        echo '<h1 style="color:#AFA;text-align:center; font-family:algerian">This Email is already in use.</h1>';
-    }
-else {
-$sql = "INSERT INTO student (fname ,lname,email,password,grade,address,manid)
-  values('$fname','$lname','$email','$password','$grade','$address','1')";
-
-  if ($conn->query($sql)){
-      echo("<script>location.href = 'http://localhost/dashboard/adv/signin.php';</script>");
-  }
-  else{
-    echo "Error: ". $sql ."
-". $conn->error;  }
-  $conn->close();}
+} else {
+    echo '<h1 style="color:#AFA;text-align:center; font-family:algerian">Username should not be empty</h1>';
+    die();
 }
-else{  echo '<h1 style="color:#AFA;text-align:center; font-family:algerian">Password should not be empty</h1>';
-  die();} }
- else{
-  echo '<h1 style="color:#AFA;text-align:center; font-family:algerian">Username should not be empty</h1>';
-  die();
- }
 
-
+$conn->close();
+?>

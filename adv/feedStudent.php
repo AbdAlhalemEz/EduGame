@@ -68,23 +68,13 @@ input[type=submit]:hover {
 session_start();
 $stuid = "1";
 
-if($_SERVER["REQUEST_METHOD"] == "POST") {
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $gamename = $_POST['Game'];
     $feedback = $_POST['subject'];
     $date = date('Y-m-d');
 
-    // Set up database connection
-   	
-	$servername = "localhost";
-	$username = "root";
-	$password = "";
-	$dbname = "advgaming";
-    $conn = new mysqli($servername, $username, $password, $dbname);
-
-    // Check connection
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }
+    // Include the database connection file
+    include 'connection.php';
 
     // Insert row into feedback table
     $stmt = $conn->prepare("INSERT INTO feedback (stuid, gamename, feedback, date) VALUES (?, ?, ?, ?)");

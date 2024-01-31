@@ -78,35 +78,30 @@
 // Get the student ID from the session
 $stuid = "1";
 
-if(isset($_POST['feedback'])) {
-	// Get the feedback from the form
-	$feedback = $_POST['feedback'];
+if (isset($_POST['feedback'])) {
+    // Get the feedback from the form
+    $feedback = $_POST['feedback'];
 
-	// Connect to the database
+    // Include the database connection file
+    include 'connection.php';
 
-	$conn = new mysqli("localhost","id20445083_root","Mi|f8NqQhl1J=&+5","id20445083_advgamin"); 
+    // Prepare the SQL statement
+    $stmt = $conn->prepare("INSERT INTO feedback (stuid, feedback, date) VALUES (?, ?, ?)");
+    $stmt->bind_param("iss", $stuid, $feedback, $date);
 
-	// Check connection
-	if ($conn->connect_error) {
-		die("Connection failed: " . $conn->connect_error);
-	}
+    // Set the parameters
+    $date = date("Y-m-d");
 
-	// Prepare the SQL statement
-	$stmt = $conn->prepare("INSERT INTO feedback (stuid, feedback, date) VALUES (?, ?, ?)");
-	$stmt->bind_param("iss", $stuid, $feedback, $date);
+    // Execute the statement
+    $stmt->execute();
 
-	// Set the parameters
-	$date = date("Y-m-d");
+    // Close the statement and the connection
+    $stmt->close();
+    $conn->close();
 
-	// Execute the statement
-	$stmt->execute();
-
-	// Close the statement and the connection
-	$stmt->close();
-	$conn->close();
-
-	// Redirect to the feedback page
-	header("Location: feedback.php?message=success");
-	exit();
+    // Redirect to the feedback page
+    header("Location: feedback.php?message=success");
+    exit();
 }
 ?>
+

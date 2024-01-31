@@ -53,31 +53,27 @@ input[type=submit]:hover {
 <form method="POST">
       
 <?php
-
-
-// Create connection
-$conn = new mysqli("localhost","id20445083_root","Mi|f8NqQhl1J=&+5","id20445083_advgamin"); 
-// Check connection
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
-}
+// Include the database connection file
+include 'connection.php';
 
 $sql = "SELECT * FROM quiz";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
-  $i = 1;
-  // output data of each row
-  while($row = $result->fetch_assoc()) {
-    echo "<h3>Question " . $i . ": " . $row["question"] . "</h3>";
-    echo "<input type='radio' name='question" . $i . "' value='1'>" . $row["answer1"] . "<br>";
-    echo "<input type='radio' name='question" . $i . "' value='2'>" . $row["answer2"] . "<br>";
-    echo "<input type='radio' name='question" . $i . "' value='3'>" . $row["answer3"] . "<br><br>";
-    $i++;
-  }
+    $i = 1;
+    // output data of each row
+    while($row = $result->fetch_assoc()) {
+        echo "<h3>Question " . $i . ": " . $row["question"] . "</h3>";
+        echo "<input type='radio' name='question" . $i . "' value='1'>" . $row["answer1"] . "<br>";
+        echo "<input type='radio' name='question" . $i . "' value='2'>" . $row["answer2"] . "<br>";
+        echo "<input type='radio' name='question" . $i . "' value='3'>" . $row["answer3"] . "<br><br>";
+        $i++;
+    }
 }
 $conn->close();
 ?>
+
+
 <input type="submit" value="Submit">
 </form>
 
@@ -90,40 +86,33 @@ $conn->close();
 
 
 
-  <?php
-  if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+<?php
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    // Include the database connection file
+    include 'connection.php';
 
+    $sql = "SELECT * FROM quiz";
+    $result = $conn->query($sql);
 
-// Create connection
-$conn = new mysqli("localhost","id20445083_root","Mi|f8NqQhl1J=&+5","id20445083_advgamin"); 
-// Check connection
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
-}
-
-$sql = "SELECT * FROM quiz";
-$result = $conn->query($sql);
-
-$grade = 0;
-$num=0;
-if ($result->num_rows > 0) {
-  $i = 1;
-  // output data of each row
-  while($row = $result->fetch_assoc()) {
-      $num++;
-    if ($_POST["question" . $i] == $row["answerkey"]) {
-      $grade++;
-      echo "<p style='color: green;'>Question " . $i . ": Correct</p>";
-    } else {
-      echo "<p style='color: red;'>Question " . $i . ": Incorrect</p>";
+    $grade = 0;
+    $num = 0;
+    if ($result->num_rows > 0) {
+        $i = 1;
+        // output data of each row
+        while ($row = $result->fetch_assoc()) {
+            $num++;
+            if (isset($_POST["question" . $i]) && $_POST["question" . $i] == $row["answerkey"]) {
+                $grade++;
+                echo "<p style='color: green;'>Question " . $i . ": Correct</p>";
+            } else {
+                echo "<p style='color: red;'>Question " . $i . ": Incorrect</p>";
+            }
+            $i++;
+        }
     }
-    $i++;
-  }
-}
-echo "<p>Your grade is: " . number_format($grade*100/3, 2) . "/100</p>";
+    echo "<p>Your grade is: " . number_format($grade * 100 / $num, 2) . "/100</p>";
 
-
-$conn->close();
+    $conn->close();
 }
 ?>
 
