@@ -23,7 +23,7 @@ This project is a web-based platform designed to manage educational games. It pr
 
 - **Feedback Viewing:**
   - View feedback provided by students about the games and the website.
-
+![Student home](https://github.com/AbdAlhalemEz/EduGame/blob/main/screenshots/instructor.gif)
 ### For Students:
 
 - **User Authentication:**
@@ -38,7 +38,7 @@ This project is a web-based platform designed to manage educational games. It pr
 
 - **Feedback Submission:**
   - Provide feedback about the games and the website.
-
+![Student home](https://github.com/AbdAlhalemEz/EduGame/blob/main/screenshots/student.gif)
 ## Getting Started
 
 1. **Prerequisites:**
