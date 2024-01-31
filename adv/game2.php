@@ -49,22 +49,17 @@ echo "$fname";
 
                     </ul>
     
-         <div id="sac1">
-                        <div class="w3-content w3-display-container">
-                            <center> <video width="50%" controls class="mySlides">
-                                    <source src="image/2.mp4" type="video/mp4">
-                                </video>
-                                <video width="50%" controls class="mySlides">
-                                    <source src="image/1.mp4" type="video/mp4">
-                                </video>
-                                <video width="50%" controls class="mySlides">
-                                    <source src="image/2.mp4" type="video/mp4">
-                                </video>
-                            </center>
-                            <button class="w3-button w3-black w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
-                            <button class="w3-button w3-black w3-display-right" onclick="plusDivs(1)">&#10095;</button>
-                        </div>
-                    </div>
+                     <div id="sac1">
+    <div class="w3-content w3-display-container">
+        <center>
+            <iframe width="60%" height="315" src="https://www.youtube.com/embed/c5AN0JDmQY4" frameborder="0" allowfullscreen class="mySlides"></iframe>
+            <iframe width="60%" height="315" src="https://www.youtube.com/watch?v=VH5Xq2Z7aQg" frameborder="0" allowfullscreen class="mySlides"></iframe>
+            <iframe width="60%" height="315" src="https://www.youtube.com/watch?v=kQxz03r4AfA" frameborder="0" allowfullscreen class="mySlides"></iframe>
+        </center>
+        <button class="w3-button w3-black w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
+        <button class="w3-button w3-black w3-display-right" onclick="plusDivs(1)">&#10095;</button>
+    </div>
+</div>
    
     
 
